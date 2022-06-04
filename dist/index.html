@@ -1,0 +1,42 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Persimmon</title>
+  <link rel="stylesheet" href="bundle.css">
+</head>
+<body>
+  <section class="content-globe">
+    <main class="container-plate">
+      <div id="process">
+        <div class="preview-plate">
+          <div :class="classNamePrefix" v-html="convert"></div>
+        </div>
+        <div class="dew-plate">
+          <div class="dew-plate-surface">
+            <div v-show="rule === 'backlog'">
+              <div id="heading_rate" class="input-heading-rate"></div>
+              <a class="btn waves-effect waves-light" @mousedown="copyToClipboard">Copy</a>
+              <hr style="border-color: gray; margin: 10px">
+            </div>
+            <div>
+              <div class="dew-radio-inline" v-for="(className, ruleName) in classNames" :key="ruleName">
+                <label>
+                  <input type="radio" name="rule" :value="ruleName" v-model="rule">
+                  <span>{{ruleName}}</span>
+                </label>
+              </div>
+            </div>
+            <textarea class="dew-textarea" v-model="origin" autocapitalize="off"></textarea>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </section>
+
+  <script src="bundle.js"></script>
+  </body>
+
+</html>
